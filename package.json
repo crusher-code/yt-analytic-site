@@ -1,5 +1,9 @@
 {
-  "dependencies": {
+  "repository" : {     
+    "type" : "git",
+    "url" : "https://github.com/crusher-code/yt-analytic-site" 
+   },
+   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
