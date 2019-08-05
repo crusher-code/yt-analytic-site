@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: yt-analytic_production
-  username: yt-analytic
+  username: ubuntu
   password: <%= ENV['YT-ANALYTIC_DATABASE_PASSWORD'] %>
