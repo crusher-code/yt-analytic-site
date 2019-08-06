@@ -2,7 +2,7 @@ import React, {component} from "react"
 import PropTypes from "prop-types"
 import {BrowserRouter as Router, Route, Link,Switch} from 'react-router-dom'
 import Home from './pages/Home'
-import Anayltics from './pages/Analytics'
+import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 
