@@ -8,8 +8,29 @@ import AboutUs from './pages/AboutUs'
 
 class MainApp extends React.Component {
   render () {
+    const{
+      logged_in, 
+      sign_in_route,
+      sign_out_route
+    }= this.props
     return (
+      
+
       <React.Fragment>
+      <header>
+        <h2>Hello</h2>
+      </header>
+      {logged_in&& 
+        <div>
+          <a href = {sign_out_route}>Sign Out</a>
+        </div>
+      }
+      {!logged_in && 
+        <div>
+          <a href={sign_in_route}>Sign In</a>
+        </div>
+      }
+
       <Router>
       <Nav>
         <NavItem>
@@ -22,7 +43,7 @@ class MainApp extends React.Component {
           <NavLink to="/" tag={Link}>Anayltics</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/" tag={Link}>AbouUs</NavLink>
+          <NavLink to="/" tag={Link}>AboutUs</NavLink>
         </NavItem>
       </Nav>
       <Switch> 
