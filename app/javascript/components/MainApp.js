@@ -2,7 +2,7 @@ import React, {component} from "react"
 import PropTypes from "prop-types"
 import {BrowserRouter as Router, Route, Link,Switch} from 'react-router-dom'
 import Home from './pages/Home'
-import Anayltics from './pages/Anayltics'
+import Anayltics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 
@@ -40,7 +40,7 @@ class MainApp extends React.Component {
           <NavLink to="/" tag={Link}>Profile</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/" tag={Link}>Anayltics</NavLink>
+          <NavLink to="/" tag={Link}>Analytics</NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/" tag={Link}>AboutUs</NavLink>
