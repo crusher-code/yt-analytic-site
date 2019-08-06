@@ -1,10 +1,11 @@
-import React, {component} from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
-import {BrowserRouter as Router, Route, Link,Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link,Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
+import { Nav, NavItem,NavLink } from 'reactstrap'
 
 class MainApp extends React.Component {
   render () {
@@ -34,23 +35,23 @@ class MainApp extends React.Component {
       <Router>
       <Nav>
         <NavItem>
-          <NavLink to="/" tag={Link}>Home</NavLink>
+          <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/" tag={Link}>Profile</NavLink>
+          <NavLink to="/profile" tag={Link}>Profile</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/" tag={Link}>Analytics</NavLink>
+          <NavLink to="/analytics" tag={Link}>Analytics</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/" tag={Link}>AboutUs</NavLink>
+          <NavLink to="/aboutus" tag={Link}>AboutUs</NavLink>
         </NavItem>
       </Nav>
       <Switch> 
         <Route path="/" exact component={Home} /> 
-        <Route path="/" exact component={Profile} /> 
-        <Route path="/" exact component={Profile} /> 
-        <Route path="/" exact component={Profile} /> 
+        <Route path="/profile" exact component={Profile} /> 
+        <Route path="/analytics" exact component={Analytics} /> 
+        <Route path="/aboutus" exact component={AboutUs} /> 
       </Switch>
       </Router> 
       </React.Fragment>
