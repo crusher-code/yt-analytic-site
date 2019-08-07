@@ -6,10 +6,10 @@ RSpec.describe ChannelsController, :type => :controller do
             expect(response.status).to eq(200)
         end
     end
-    describe "get show" do
-        it "will put a 200 status code" do
-            get :show
-            expect(response.status).to eq(200)
-        end
-    end
+    # describe "get show" do
+    #     it "will put a 200 status code" do
+    #         get :show
+    #         expect(response.status).to eq(200)
+    #     end
+    # end
 end
