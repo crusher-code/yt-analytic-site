@@ -32,7 +32,7 @@ class ChannelsController < ApplicationController
     def destroy
         @channel = current_user.channels.find(params[:id])
         if @channel.destroy 
-            render json: Channel.all
+            render json: @channel
         else 
             render json: {error: "Couldn't delete"}, status: 400
         end 
