@@ -3,11 +3,12 @@ class ChannelsController < ApplicationController
     
     def index 
         @channels = Channel.all 
-        render json: @channels
+        render json: @channels, status: 200
     end 
     
     def show 
         @channel = Channel.find(params[:id])
+        render json: @channel, status: 200
     end 
     
     def create 
@@ -20,7 +21,7 @@ class ChannelsController < ApplicationController
     end 
     
     def update 
-        @channel = current_user.channles.find(params[:id])
+        @channel = current_user.channels.find(params[:id])
         if @channel.update(channel_params)
             render json: @channel
         else 
@@ -31,9 +32,9 @@ class ChannelsController < ApplicationController
     def destroy
         @channel = current_user.channels.find(params[:id])
         if @channel.destroy 
-        render json: @channel
+            render json: @channel
         else 
-            render json: {error: "Could't delete"}, status: 400
+            render json: {error: "Couldn't delete"}, status: 400
         end 
     end
     
@@ -41,5 +42,4 @@ class ChannelsController < ApplicationController
     def channel_params
         params.requre(:channel).permit(:name, :id_channel)
     end 
-    
 end
