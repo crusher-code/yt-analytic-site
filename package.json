@@ -1,19 +1,37 @@
 {
-  "repository" : {     
-    "type" : "git",
-    "url" : "https://github.com/crusher-code/yt-analytic-site" 
-   },
-   "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crusher-code/yt-analytic-site"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "devise": "^1.0.9",
+    "enzyme-adapter-react-16": "^1.14.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react_ujs": "^2.5.0"
+    "react_ujs": "^2.5.0",
+    "reactstrap": "^8.0.1",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "react-router-dom": "^5.0.1",
     "webpack-dev-server": "^3.7.2"
+  },
+  "jest": {
+    "roots": [
+      "app/javascript/components"
+    ],
+    "moduleDictories": [
+      "node_modules",
+      "app/javascript"
+    ]
   }
 }
