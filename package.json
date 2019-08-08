@@ -3,6 +3,7 @@
     "type": "git",
     "url": "https://github.com/crusher-code/yt-analytic-site"
   },
+  "license": "MIT",
   "scripts": {
     "test": "jest"
   },
