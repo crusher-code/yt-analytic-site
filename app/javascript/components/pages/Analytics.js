@@ -3,8 +3,18 @@ import ReactDOM  from 'react-dom'
 
 class Analytics extends Component{
     render(){
+        const{
+            logged_in, 
+            channels_route
+    }= this.props
         return(
-            <h1>Analytics</h1>)
+            <React.Fragment>
+            <h1>Analytics</h1>
+         <div>
+            <li>{channels_route}</li>
+         </div>
+         </React.Fragment>
+         )
     }
 }
 export default Analytics

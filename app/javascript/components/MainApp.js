@@ -12,7 +12,8 @@ class MainApp extends React.Component {
     const{
       logged_in, 
       sign_in_route,
-      sign_out_route
+      sign_out_route,
+      channels_route
     }= this.props
     return (
       
@@ -50,7 +51,7 @@ class MainApp extends React.Component {
       <Switch> 
         <Route path="/" exact component={Home} /> 
         <Route path="/profile" exact component={Profile} /> 
-        <Route path="/analytics" exact component={Analytics} /> 
+        <Route path="/analytics" exact render={( ...props) => <Analytics channels_route={channels_route}/> } /> 
         <Route path="/aboutus" exact component={AboutUs} /> 
       </Switch>
       </Router> 
