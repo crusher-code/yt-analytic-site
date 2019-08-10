@@ -36,6 +36,7 @@ class AboutUs extends Component{
         const mapper = members.map((person) => {
             console.log(person.name)
             return (
+               
                 <Card>
                     <CardImg top width="50%" src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.boredpanda.com%2Fblog%2Fwp-content%2Fuploads%2F2015%2F08%2Fvampire-angry-cat-loki-29.jpg&f=1" alt="fill alt here" />
                     <CardBody>
@@ -53,6 +54,7 @@ class AboutUs extends Component{
                     {/*Add bootstrap cards for each of us, with name,and maybe our professional photos*/}
                     {/*map over an array of members to populate cards for each, filled in with their respective data*/}
                     { mapper }
+                
                 </div>
             </React.Fragment>
         )

@@ -52,3 +52,5 @@ gem "devise", "~> 4.6"
 gem "webpacker", "~> 4.0"
 
 gem "react-rails", "~> 2.6"
+
+gem "bootstrap", "~> 4.3"
