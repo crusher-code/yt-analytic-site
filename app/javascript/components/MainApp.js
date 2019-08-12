@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
+import NewChannel from './pages/NewChannel'
 import { Nav, NavItem,NavLink } from 'reactstrap'
 
 class MainApp extends React.Component {
@@ -49,12 +50,21 @@ class MainApp extends React.Component {
         <NavItem>
           <NavLink to="/aboutus" tag={Link}>AboutUs</NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink to="/newchannel" tag={Link}>NewChannel</NavLink>
+        </NavItem>
       </Nav>
+      
+      
+      
+      
+      
       <Switch> 
         <Route path="/" exact component={Home} /> 
        { /* <Route path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/analytics" exact component={Analytics} /> 
         <Route path="/aboutus" exact component={AboutUs} /> 
+        <Route path="/newchannel" exact component={NewChannel} /> 
       </Switch>
       </Router> 
       </React.Fragment>
