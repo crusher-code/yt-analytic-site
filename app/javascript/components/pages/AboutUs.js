@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import ReactDOM  from 'react-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap'
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
+import { Card, CardImg, CardText, CardBody, CardTitle, Row, Col } from 'reactstrap'
 
 class AboutUs extends Component{
     constructor(props){
@@ -36,18 +36,24 @@ class AboutUs extends Component{
         const mapper = members.map((person) => {
             console.log(person.name)
             return (
-               
+                <div>
+                <Row>
+                <Col sm="6">
                 <Card>
-                    <CardImg top width="50%" src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.boredpanda.com%2Fblog%2Fwp-content%2Fuploads%2F2015%2F08%2Fvampire-angry-cat-loki-29.jpg&f=1" alt="fill alt here" />
-                    <CardBody>
+                    <CardImg width="25%"  alt="fill alt here" />
+                        <CardBody>
                         <CardTitle>{person.name}</CardTitle>
                         <CardText>{person.desc}</CardText>
                     </CardBody>
                 </Card>
+                 </Col> 
+                </Row> 
+               
+                </div>
                 )
             })
         return(
-            <React.Fragment>
+            
                 <div>
                     <h1>About Us</h1>
                     <h4>Hello, we are Code Crushers. Our team is comprised of LEARN Academy students and this site is our Capstone Project.</h4>
@@ -56,7 +62,7 @@ class AboutUs extends Component{
                     { mapper }
                 
                 </div>
-            </React.Fragment>
+            
         )
     }
 }
