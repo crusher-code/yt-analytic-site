@@ -1,12 +1,10 @@
   import React from 'react';
   import ReactDOM from 'react-dom';
-  import MainApp from '../../MainApp';
+  import MainApp from '../components/MainApp';
   import Enzyme, { shallow, mount } from 'enzyme';
-  import Routes, { Home, News, NoMatch } from './Routes';
   import Adapter from 'enzyme-adapter-react-16';
-  import { MemoryRouter
-  } from 'react-router'
-  import { Route } from 'reat-router-dom';
+  import { MemoryRouter } from 'react-router';
+  import { Route } from 'react-router-dom';
   
   Enzyme.configure({ adapter: new Adapter() });
 

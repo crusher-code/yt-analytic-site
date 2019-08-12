@@ -54,7 +54,7 @@ class MainApp extends React.Component {
         <Route path="/analytics" exact component={Analytics} /> 
         <Route path="/aboutus" exact component={AboutUs} /> 
       </Switch>
-      </Router> 
+      </Router>
       </React.Fragment>
       
     );
