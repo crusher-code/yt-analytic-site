@@ -39,7 +39,7 @@ class MainApp extends React.Component {
           <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/profile" tag={Link}>Profile</NavLink>
+          <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/analytics" tag={Link}>Analytics</NavLink>
@@ -50,7 +50,7 @@ class MainApp extends React.Component {
       </Nav>
       <Switch> 
         <Route path="/" exact component={Home} /> 
-        <Route path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> 
+       { /* <Route path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/analytics" exact component={Analytics} /> 
         <Route path="/aboutus" exact component={AboutUs} /> 
       </Switch>
