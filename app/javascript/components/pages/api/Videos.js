@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 
 class Videos extends Component {
-//   constructor(props){
-//     super(props)
-//     this.state = {
-//         videos: []
-//     }
-//   }
   componentDidMount(){
     this.props.getVideos()
     

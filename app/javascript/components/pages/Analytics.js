@@ -17,15 +17,7 @@ class Analytics extends Component {
       isLoaded: null,
     }
   }
-  getVideoStat = () => {
-    let { videoData } = this.state
-    let videoIds = []
 
-    videoData.map((video, index) => {
-      videoIds.push(video.contentDetails.videoId)
-    })
-    
-  }
   getVideos = () =>{
     getVideoData(this.state.videoId)
     .then( vidData => {
