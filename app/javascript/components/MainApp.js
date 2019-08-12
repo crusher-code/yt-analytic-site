@@ -66,7 +66,7 @@ class MainApp extends React.Component {
         <Route path="/aboutus" exact component={AboutUs} /> 
         <Route path="/newchannel" exact component={NewChannel} /> 
       </Switch>
-      </Router> 
+      </Router>
       </React.Fragment>
       
     );
