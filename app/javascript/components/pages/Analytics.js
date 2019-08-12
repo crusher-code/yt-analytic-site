@@ -52,7 +52,7 @@ class Analytics extends Component {
             }
             else{
               let isLoaded = false
-              let data = true
+              let data = false
               this.setState({ isLoaded, data })
             }
     })
@@ -67,21 +67,21 @@ class Analytics extends Component {
     return (
       <div>
       <h1>Analytics</h1>
-     {data &&
+     {isLoaded &&
       <div>
-       {isLoaded &&
+       {data &&
          <div>
           < Snippet snippetData = {data.snippet} />
           < Statistics statisticsData = {data.statistics} />
           < Videos videoData={videoData} getVideos={this.getVideos} />
          </div>
        }
-       {!isLoaded &&
+      </div>
+     }
+     {!isLoaded &&
         <div>
          <p>There was a problem fetching your data</p>
         </div> 
-       }
-      </div>
      }
       </div>
     );
