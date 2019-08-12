@@ -9,6 +9,39 @@ import NewChannel from './pages/NewChannel'
 import { Nav, NavItem,NavLink } from 'reactstrap'
 
 class MainApp extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      channels: []
+    }
+    this.getChannels()
+  }
+  
+  getChannels = () => {
+    fetch("/channels")
+    .then( response => {
+      return response.json()
+    })
+    .then( channels => {
+      this.setState({channels})
+    })
+  }
+  
+  createChannel = (attrs) => {
+    return fetch("/channels",{
+      method: 'POST',
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({channel: attrs})
+    })
+    .then(response => {
+      if(response.status === 201){
+        this.getChannels()
+      }
+    })
+}
+  
   render () {
     const{
       logged_in, 
@@ -30,7 +63,7 @@ class MainApp extends React.Component {
           <a href = {sign_out_route}>Sign Out</a>
         </div>
       }
-      {!logged_in && 
+      {!logged_in &&
         <div>
           <a href={sign_in_route}>Sign In</a>
         </div>
@@ -64,7 +97,8 @@ class MainApp extends React.Component {
        { /* <Route path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/analytics" exact component={Analytics} /> 
         <Route path="/aboutus" exact component={AboutUs} /> 
-        <Route path="/newchannel" exact component={NewChannel} /> 
+       {/* <Route path="/newchannel" exact component={NewChannel} /> */}
+        <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
       </Switch>
       </Router>
       </React.Fragment>
