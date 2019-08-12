@@ -13,6 +13,10 @@ import {
 
 class NewChannel extends Component {
     render(){
+        const {
+            new_channel_route
+            
+        } = this.props
         return(
             
             
@@ -21,13 +25,13 @@ class NewChannel extends Component {
         
         <h1>Create New Channel</h1>
           <Label>Channel ID</Label>
-          <Input type="text" placeholder="Enter your channel id here!" />
+          <Input type="text" placeholder="Enter channel id here!" />
         </FormGroup>
         <FormGroup>
           <Label>Channel Name</Label>
           <Input type="text" placeholder="Enter channel name" />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button href = {new_channel_route}>Submit</Button>
     </div>
             
          );
