@@ -26,8 +26,15 @@ class MainApp extends React.Component {
       return response.json()
     })
     .then( channels => {
-      let id_channel = channels[0].id
+      console.log(channels)
+      let id_channel
+      if(channels.length === 0){
+        id_channel = null
+      }else{
+        id_channel = channels[0].id
+      }
       this.setState({channels, id_channel})
+      // this.setState({channels})
     })
   }
   

@@ -10,7 +10,6 @@ class Analytics extends Component {
     super(props)
     this.state = {
       data: null,
-      channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw",
       videoData: null,
       videoId: null,
       renderStr: "",
