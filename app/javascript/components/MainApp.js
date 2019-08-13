@@ -48,9 +48,11 @@ class MainApp extends React.Component {
       sign_in_route,
       sign_out_route,
       channels_route,
-      edit_user_route
+      edit_user_route,
+      apiKey
 
     }= this.props
+    console.log(apiKey)
     return (
       
 
@@ -95,7 +97,7 @@ class MainApp extends React.Component {
       <Switch> 
         <Route path="/" exact component={Home} /> 
        { /* <Route path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
-        <Route path="/analytics" exact component={Analytics} /> 
+        <Route path="/analytics" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} /> )}} />
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
         <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
