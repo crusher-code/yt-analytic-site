@@ -19,7 +19,7 @@ class Analytics extends Component {
   }
 
   getVideos = () =>{
-    getVideoData(this.state.videoId)
+    getVideoData(this.state.videoId, this.props.apiKey)
     .then( vidData => {
       console.log(vidData)
       vidData = vidData.items
@@ -31,7 +31,7 @@ class Analytics extends Component {
           videoIds = `${videoIds}${video.contentDetails.videoId}&`
         }
       })
-      getVideoStatData(videoIds)
+      getVideoStatData(videoIds, this.props.apiKey)
       .then( videoData => {
         videoData = videoData.items
         this.setState({ videoData })
@@ -40,7 +40,7 @@ class Analytics extends Component {
     
   }
   componentDidMount(){
-    getChannelData(this.state.channelId)
+    getChannelData(this.state.channelId, this.props.apiKey)
     .then( data => {
             data = data.items[0]
             console.log(data)
@@ -62,8 +62,7 @@ class Analytics extends Component {
 
   render(){
   const  { data, videoId, isLoaded, videoData, videoIds } = this.state
-  console.log(isLoaded)
-  console.log(videoData)
+  console.log(this.props.apiKey)
     return (
       <div>
       <h1>Analytics</h1>
