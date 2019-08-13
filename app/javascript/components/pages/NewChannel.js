@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import ReactDOM  from 'react-dom'
+import { Redirect } from 'react-router'
 import { 
     Button, 
     Form,
     FormGroup,
     Label, 
     Input, 
-    FormText 
+    FormText
 } from 'reactstrap';
 
 
@@ -16,7 +17,7 @@ class NewChannel extends Component {
         super(props)
         this.state = {
             form: {
-                channelid: "",
+                id_channel: "",
                 name: ""
             }
         }
@@ -42,14 +43,14 @@ class NewChannel extends Component {
     
     render(){
         const {
-            channelid,
+            id_channel,
             name,
             createSuccess
         } = this.state
         return(
             
             <React.Fragment>
-            { createSuccess && <Redirect to="/analytics"/> }
+            { createSuccess && <Redirect to="/"/> }
     <div>
         <FormGroup>
         
@@ -57,8 +58,8 @@ class NewChannel extends Component {
           <Label>Channel ID</Label>
           
           <Input 
-          name="channelid"
-          value={channelid}
+          name="id_channel"
+          value={id_channel}
           placeholder="Enter channel id here!" 
           onChange = {this.onChange}
           type="text"

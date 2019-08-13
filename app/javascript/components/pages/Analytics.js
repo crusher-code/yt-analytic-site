@@ -39,11 +39,30 @@ class Analytics extends Component {
     })
     
   }
+  getParamId = () => {
+    const { channels } = this.props
+    console.log(channels)
+    let idParam = this.props.match.params.id
+    idParam = Number(idParam)
+    console.log(idParam + "PARAM ID")
+    let id
+    channels.map((channel, index) => {
+      console.log(channel.id)
+      if(channel.id === idParam ){
+        console.log(channel.id)
+        id = channel.id_channel
+      }
+    })
+    id = id
+    console.log(id)
+  return id
+  }
   componentDidMount(){
-    getChannelData(this.state.channelId, this.props.apiKey)
+    let channelId = this.getParamId()
+    console.log(channelId + "CHANNEL ID")
+    getChannelData(channelId, this.props.apiKey)
     .then( data => {
             data = data.items[0]
-            console.log(data)
             if(data !== undefined){
               let renderStr = JSON.stringify(data)
               let videoId = data.contentDetails.relatedPlaylists.uploads
@@ -62,7 +81,6 @@ class Analytics extends Component {
 
   render(){
   const  { data, videoId, isLoaded, videoData, videoIds } = this.state
-  console.log(this.props.apiKey)
     return (
       <div>
       <h1>Analytics</h1>
