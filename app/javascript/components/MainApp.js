@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
-import { Nav, NavItem,NavLink } from 'reactstrap'
+import { Nav, NavItem, NavLink, Container, Row, Col  } from 'reactstrap'
 
 class MainApp extends React.Component {
   render () {
@@ -19,34 +19,36 @@ class MainApp extends React.Component {
       
 
       <React.Fragment>
-      <header>
-        <h2>Hello</h2>
-      </header>
-      {logged_in&& 
-        <div>
-          <a href = {sign_out_route}>Sign Out</a>
-        </div>
-      }
-      {!logged_in && 
-        <div>
-          <a href={sign_in_route}>Sign In</a>
-        </div>
-      }
-
-      <Router>
+     <Container>
+     <Row>
+     <Col>
+ 
+    <Router>
       <Nav>
         <NavItem>
           <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
         </NavItem>
+        
         <NavItem>
           <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
         </NavItem>
+        
         <NavItem>
           <NavLink to="/analytics" tag={Link}>Analytics</NavLink>
         </NavItem>
+        
         <NavItem>
           <NavLink to="/aboutus" tag={Link}>AboutUs</NavLink>
         </NavItem>
+        
+        <NavItem>
+             {logged_in&& 
+             <NavLink to="" href = {sign_out_route}>Sign Out</NavLink>
+             }
+             {!logged_in && 
+             <NavLink to="" href = {sign_in_route}>Sign In</NavLink>            }
+        </NavItem>
+        
       </Nav>
       <Switch> 
         <Route path="/" exact component={Home} /> 
@@ -55,6 +57,9 @@ class MainApp extends React.Component {
         <Route path="/aboutus" exact component={AboutUs} /> 
       </Switch>
       </Router>
+      </Col>
+      </Row>
+      </Container>
       </React.Fragment>
       
     );
