@@ -7,6 +7,7 @@ import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 import { Nav, NavItem,NavLink } from 'reactstrap'
 
+
 class MainApp extends React.Component {
   render () {
     const{
@@ -20,7 +21,7 @@ class MainApp extends React.Component {
 
       <React.Fragment>
       <header>
-        <h2>Hello</h2>
+        
       </header>
       {logged_in&& 
         <div>
