@@ -93,19 +93,6 @@ reloadPage = (id) => {
       
 
       <React.Fragment>
-      <header>
-        <h2>Hello</h2>
-      </header>
-      {logged_in&& 
-        <div>
-          <a href = {sign_out_route}>Sign Out</a>
-        </div>
-      }
-      {!logged_in &&
-        <div>
-          <a href={sign_in_route}>Sign In</a>
-        </div>
-      }
 
        <div style={{backgroundColor: "#b32615"}}>
       <Router>
