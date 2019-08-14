@@ -67,6 +67,7 @@ class AboutUs extends Component{
                 )
             })
         return(
+<<<<<<< HEAD
             <div className="p-3 mb-2 text-white" style={{backgroundColor: "#b32615"}}>
            
                 <div className ="d-flex justify-content-center">
@@ -105,6 +106,9 @@ class AboutUs extends Component{
             </div>
             
         )
+=======
+            <h1>About Us</h1>)
+>>>>>>> parent of f71d145... added license field to package.json, removed duplicate .js files in /pages, added some content to AboutUs.js
     }
 }
 export default AboutUs
