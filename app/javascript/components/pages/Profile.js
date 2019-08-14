@@ -17,12 +17,9 @@ class Profile extends Component{
         
         return(
             <div class="d-flex-justify-center">
-        <React.Fragment>
-             <h1>Profile</h1>
-            <a href={edit_user_route}>Edit</a>
-                
-        </React.Fragment>
-                </div>
+                <h1>Profile</h1>
+                    <a href={edit_user_route}>Edit</a>
+            </div>
             
         
             );
