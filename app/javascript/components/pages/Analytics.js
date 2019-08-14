@@ -3,6 +3,7 @@ import { getChannelData, getVideoData, getVideoStatData } from './api/yt_api'
 import Videos from './api/Videos'
 import Snippet from './api/Snippet'
 import Statistics from './api/Statistics'
+import ListChannels from './api/ListChannels'
 
 
 class Analytics extends Component {
@@ -10,7 +11,6 @@ class Analytics extends Component {
     super(props)
     this.state = {
       data: null,
-      channelId: "UC-lHJZR3Gqxm24_Vd_AJ5Yw",
       videoData: null,
       videoId: null,
       renderStr: "",
@@ -21,7 +21,6 @@ class Analytics extends Component {
   getVideos = () =>{
     getVideoData(this.state.videoId, this.props.apiKey)
     .then( vidData => {
-      console.log(vidData)
       vidData = vidData.items
       let videoIds = ""
       vidData.map((video, index) => {
@@ -39,11 +38,24 @@ class Analytics extends Component {
     })
     
   }
+  getParamId = () => {
+    const { channels } = this.props
+    let idParam = this.props.match.params.id
+    idParam = Number(idParam)
+    let id
+    channels.map((channel, index) => {
+      if(channel.id === idParam ){
+        id = channel.id_channel
+      }
+    })
+    id = id
+  return id
+  }
   componentDidMount(){
-    getChannelData(this.state.channelId, this.props.apiKey)
+    let channelId = this.getParamId()
+    getChannelData(channelId, this.props.apiKey)
     .then( data => {
             data = data.items[0]
-            console.log(data)
             if(data !== undefined){
               let renderStr = JSON.stringify(data)
               let videoId = data.contentDetails.relatedPlaylists.uploads
@@ -61,8 +73,8 @@ class Analytics extends Component {
   //        <p>{this.state.renderStr}</p>
 
   render(){
+  const { channels, reloadPage } = this.props
   const  { data, videoId, isLoaded, videoData, videoIds } = this.state
-  console.log(this.props.apiKey)
     return (
       <div>
       <h1>Analytics</h1>
@@ -70,6 +82,7 @@ class Analytics extends Component {
       <div>
        {data &&
          <div>
+          < ListChannels channels = {channels} reloadPage = {reloadPage} />
           < Snippet snippetData = {data.snippet} />
           < Statistics statisticsData = {data.statistics} />
           < Videos videoData={videoData} getVideos={this.getVideos} />
