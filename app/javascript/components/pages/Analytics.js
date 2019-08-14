@@ -3,6 +3,7 @@ import { getChannelData, getVideoData, getVideoStatData } from './api/yt_api'
 import Videos from './api/Videos'
 import Snippet from './api/Snippet'
 import Statistics from './api/Statistics'
+import ListChannels from './api/ListChannels'
 
 
 class Analytics extends Component {
@@ -44,6 +45,7 @@ class Analytics extends Component {
     let idParam = this.props.match.params.id
     idParam = Number(idParam)
     console.log(idParam + "PARAM ID")
+    console.log(channels)
     let id
     channels.map((channel, index) => {
       console.log(channel.id)
@@ -79,6 +81,7 @@ class Analytics extends Component {
   //        <p>{this.state.renderStr}</p>
 
   render(){
+  const { channels, reloadPage } = this.props
   const  { data, videoId, isLoaded, videoData, videoIds } = this.state
     return (
       <div>
@@ -87,6 +90,7 @@ class Analytics extends Component {
       <div>
        {data &&
          <div>
+          < ListChannels channels = {channels} reloadPage = {reloadPage} />
           < Snippet snippetData = {data.snippet} />
           < Statistics statisticsData = {data.statistics} />
           < Videos videoData={videoData} getVideos={this.getVideos} />

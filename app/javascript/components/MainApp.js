@@ -13,7 +13,7 @@ class MainApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      channels: [],
+      channels: null,
       channel: null,
       id_channel: null
     }
@@ -75,6 +75,9 @@ class MainApp extends React.Component {
       }
     })
 }
+reloadPage = (id) => {
+    window.location.href = `/analytics/${id}`
+  }
   
   render () {
     const{
@@ -86,6 +89,7 @@ class MainApp extends React.Component {
       apiKey
 
     }= this.props
+    const { channels } = this.state
     console.log(this.state.channels)
     return (
       
@@ -129,12 +133,16 @@ class MainApp extends React.Component {
       
       
       <Switch> 
-        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={this.state.channels} deleteChannel={this.deleteChannel} /> )}} /> 
+        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={this.state.channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
        { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
        {logged_in &&
-          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={this.state.channels} /> )}} />
+        <div>
+        {channels &&
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={this.state.channels} reloadPage={this.reloadPage} /> )}} />
+        }
+        </div>
        }
        {logged_in &&
           <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />

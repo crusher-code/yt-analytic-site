@@ -20,7 +20,7 @@ const { videoData } = this.props
         <div>
             {this.props.videoData.map((video, index) => {
                 return(
-                    <div>
+                    <div key={index}>
                         <img src={video.snippet.thumbnails.default.url} alt="This is alt"></img>
                         <p>Title: {video.snippet.title}</p>
                         <p>Views: {video.statistics.viewCount}</p>
