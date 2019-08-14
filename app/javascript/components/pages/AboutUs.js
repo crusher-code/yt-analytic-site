@@ -53,7 +53,7 @@ class AboutUs extends Component{
                <Col sm="4" style={{padding:"10px" }}>
                 <Card className="text-center text-white"  style={{ width:"89%", height:"100%", padding: "5px" }}>
                
-                    <CardBody inverse style={{backgroundColor:'#b32615'}}>
+                    <CardBody inverse="true" style={{backgroundColor:'#b32615'}}>
                     <CardImg top  width="200px" height="230px" src={person.img}  alt="Card image cap" />
                         <CardTitle>{person.name}</CardTitle>
                         <CardText>{person.desc}</CardText>
@@ -67,16 +67,16 @@ class AboutUs extends Component{
                 )
             })
         return(
-            <div class="p-3 mb-2 text-white" style={{backgroundColor: "#b32615"}}>
+            <div className="p-3 mb-2 text-white" style={{backgroundColor: "#b32615"}}>
            
-                <div class ="d-flex justify-content-center">
+                <div className ="d-flex justify-content-center">
                 <h1>MEET THE TEAM</h1>
                 <br></br>
                 </div>
             
-            <Container outline color="secondary" style={{backgroundColor:"#b32615",shadowColor:"grey",padding:"10px"}}>
+            <Container outline="true" color="secondary" style={{backgroundColor:"#b32615",shadowColor:"grey",padding:"10px"}}>
             
-             <div class="d-flex-row-justify-content-end">
+             <div className="d-flex-row-justify-content-end">
             <img src={sun} style={{hieght: "250px", width: "250px",postion:"absolute", opacity:".6"}} />
             {''}
             <img src={clouds} style={{height: "200px", height: "250px",postion:"absolute", opacity:".6"}} />

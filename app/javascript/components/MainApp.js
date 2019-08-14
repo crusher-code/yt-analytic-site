@@ -23,12 +23,12 @@ class MainApp extends React.Component {
       <header>
         
       </header>
-      {logged_in&& 
+      {logged_in &&
         <div>
           <a href = {sign_out_route}>Sign Out</a>
         </div>
       }
-      {!logged_in && 
+      {!logged_in &&
         <div>
           <a href={sign_in_route}>Sign In</a>
         </div>
