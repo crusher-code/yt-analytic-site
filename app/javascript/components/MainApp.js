@@ -6,13 +6,16 @@ import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 import NewChannel from './pages/NewChannel'
+import NotLoggedIn from './pages/NotLoggedIn'
 import { Nav, NavItem,NavLink } from 'reactstrap'
 
 class MainApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      channels: []
+      channels: null,
+      channel: null,
+      id_channel: null
     }
     this.getChannels()
   }
@@ -23,7 +26,35 @@ class MainApp extends React.Component {
       return response.json()
     })
     .then( channels => {
-      this.setState({channels})
+      let id_channel
+      if(channels.length === 0){
+        id_channel = null
+      }else{
+        id_channel = channels[0].id
+      }
+      this.setState({channels, id_channel})
+      // this.setState({channels})
+    })
+  }
+  
+  getChannel = (id) => {
+    fetch(`/channels/${id}`)
+    .then( response => {
+      return response.json()
+    })
+    .then( channel => {
+      this.setState({channel})
+    })
+  }
+  
+  deleteChannel = (id) => {
+    return fetch(`/channels/${id}`,{
+      method: 'DELETE'
+    })
+    .then( response => {
+      if(response.status === 200){
+        this.getChannels()
+      }
     })
   }
   
@@ -41,6 +72,9 @@ class MainApp extends React.Component {
       }
     })
 }
+reloadPage = (id) => {
+    window.location.href = `/analytics/${id}`
+  }
   
   render () {
     const{
@@ -52,7 +86,7 @@ class MainApp extends React.Component {
       apiKey
 
     }= this.props
-    console.log(apiKey)
+    const { channels } = this.state
     return (
       
 
@@ -80,7 +114,7 @@ class MainApp extends React.Component {
           <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/analytics" tag={Link}>Analytics</NavLink>
+          <NavLink to={`/analytics/${this.state.id_channel}`} tag={Link}>Analytics</NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/aboutus" tag={Link}>AboutUs</NavLink>
@@ -95,12 +129,26 @@ class MainApp extends React.Component {
       
       
       <Switch> 
-        <Route path="/" exact component={Home} /> 
-       { /* <Route path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
-        <Route path="/analytics" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} /> )}} />
+        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
+       { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
-        <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
+       {logged_in &&
+        <div>
+        {channels &&
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={channels} reloadPage={this.reloadPage} /> )}} />
+        }
+        </div>
+       }
+       {logged_in &&
+          <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
+       }
+       {!logged_in &&
+          <Route path="/analytics" exact component={NotLoggedIn} />
+       }
+       {!logged_in &&
+          <Route path="/newchannel" exact component={NotLoggedIn} />
+       }
       </Switch>
       </Router>
       </React.Fragment>
