@@ -21,7 +21,6 @@ class Analytics extends Component {
   getVideos = () =>{
     getVideoData(this.state.videoId, this.props.apiKey)
     .then( vidData => {
-      console.log(vidData)
       vidData = vidData.items
       let videoIds = ""
       vidData.map((video, index) => {
@@ -41,26 +40,19 @@ class Analytics extends Component {
   }
   getParamId = () => {
     const { channels } = this.props
-    console.log(channels)
     let idParam = this.props.match.params.id
     idParam = Number(idParam)
-    console.log(idParam + "PARAM ID")
-    console.log(channels)
     let id
     channels.map((channel, index) => {
-      console.log(channel.id)
       if(channel.id === idParam ){
-        console.log(channel.id)
         id = channel.id_channel
       }
     })
     id = id
-    console.log(id)
   return id
   }
   componentDidMount(){
     let channelId = this.getParamId()
-    console.log(channelId + "CHANNEL ID")
     getChannelData(channelId, this.props.apiKey)
     .then( data => {
             data = data.items[0]

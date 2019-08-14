@@ -26,7 +26,6 @@ class MainApp extends React.Component {
       return response.json()
     })
     .then( channels => {
-      console.log(channels)
       let id_channel
       if(channels.length === 0){
         id_channel = null
@@ -60,7 +59,6 @@ class MainApp extends React.Component {
   }
   
   createChannel = (attrs) => {
-    console.log(attrs)
     return fetch("/channels",{
       method: 'POST',
       headers:{
@@ -90,7 +88,6 @@ reloadPage = (id) => {
 
     }= this.props
     const { channels } = this.state
-    console.log(this.state.channels)
     return (
       
 
@@ -133,14 +130,14 @@ reloadPage = (id) => {
       
       
       <Switch> 
-        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={this.state.channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
+        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
        { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
        {logged_in &&
         <div>
         {channels &&
-          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={this.state.channels} reloadPage={this.reloadPage} /> )}} />
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={channels} reloadPage={this.reloadPage} /> )}} />
         }
         </div>
        }
