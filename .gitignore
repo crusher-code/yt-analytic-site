@@ -8,7 +8,7 @@
 /.bundle
 
 #Ignore .env files
-/.env
+.env
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -25,3 +25,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.env
