@@ -43,8 +43,7 @@ class MainApp extends React.Component {
       return response.json()
     })
     .then( channel => {
-      console.log(channel)
-      return channel
+      this.setState({channel})
     })
   }
   

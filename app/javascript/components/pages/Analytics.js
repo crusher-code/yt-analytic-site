@@ -17,8 +17,8 @@ class Analytics extends Component {
       isLoaded: null,
       channels: null,
     }
-    this.getParamId()
     this.getChannels()
+    this.getParamId()
   }
   
   getChannels = () => {
@@ -73,17 +73,13 @@ class Analytics extends Component {
   // }
   getParamId = () => {
     let idParam = this.props.match.params.id
-    console.log(idParam)
     this.getChannel(idParam)
     .then((channelData)=>{
-      console.log("1")
       return channelData.id_channel
     })
     .then((channelId)=> {
-      console.log("2")
       getChannelData(channelId, this.props.apiKey)
       .then( data => {
-              console.log("3")
               data = data.items[0]
               if(data !== undefined){
                 let renderStr = JSON.stringify(data)
