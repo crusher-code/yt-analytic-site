@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import ReactDOM  from 'react-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap'
 import { Card, CardImg, CardText, CardBody, CardTitle, Row, Col, CardDeck, Button, Container } from 'reactstrap'
-import testingB from '../images/testingB'
+import playNew from '../images/playNew'
 import city from '../images/city'
-import play from '../images/play'
+import playNewB from '../images/playNewB'
 
 class AboutUs extends Component{
     constructor(props){
@@ -23,7 +23,7 @@ class AboutUs extends Component{
                     img: "https://media.licdn.com/dms/image/C4D03AQEdl9MaigflAQ/profile-displayphoto-shrink_200_200/0?e=1571270400&v=beta&t=Fpv_V_n51UF78iaomgZTTTnsme_5KRTJRY9pmTAzHW0"
                 },
                 {name: "Lali Gabelaya",
-                    desc: "I dunno",
+                    desc: "Detail-oriented driven professional passionate about writing well-designed and efficient code using current practices in Web development.",
                     linked_in: "http://www.linkedin.com/in/lali-gabelaya",
                     github: "https://github.com/lali20021",
                     img: "https://media.licdn.com/dms/image/C5603AQHiUlPywHDkoA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=6Yk6SgBY558ao8f5q_mBH9liLeJLRTwCbJ6vO91JmWE"},
@@ -34,7 +34,7 @@ class AboutUs extends Component{
                     img: "https://media.licdn.com/dms/image/C5603AQF4B6QBLDt-qQ/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=X_idVAfsdeTJw6C5o427GrcP6ar0LXVaj0rMm4Z_AyE"
                 },
                 {name: "Joshua Gibson",
-                    desc: "Full-Stack developer with long hair and loud music.",
+                    desc: "Full-Stack developer with a specailization in AI",
                     linked_in: "https://www.linkedin.com/in/joshalexgibs/",
                     github: "https://github.com/joshalexgibs", 
                     img: "https://media.licdn.com/dms/image/C5603AQGYmmQZ8Mf0SA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=GSO07iv0DgKl2Ua_SHLCK6GxHqOKXDym1OOsKiPLJUI",
@@ -68,23 +68,22 @@ class AboutUs extends Component{
             })
         return(
             
-            <div className="p-3 mb-2 text-white"
+            <div className="mb-2 text-white d-flex-justify-end"
             style={{backgroundColor: "#b32615",
-            backgroundImage:`url('${play}')`,
-            backgroundRepeat: "repeat",
+            backgroundImage:`url('${playNewB}')`,
+            backgroundRepeat: "repeat-Y",
             }}>
             
-           
-
-            <div class ="d-flex justify-content-center">
+             <Container outline color="secondary" style={{backgroundColor:"#b32615",shadowColor:"black",padding:"10px"}}>
+              <div class ="d-flex justify-content-center">
                 <h1>MEET THE TEAM</h1>
                     <br></br>
-            </div>
-            
-             <Container outline color="secondary" style={{backgroundColor:"#b32615",shadowColor:"black",padding:"10px"}}>
+                    <br></br>
+                </div>
                 <Row>
-            
-                    <h3> Code Crusher was founded in August of 2019 at 704 J Street in San Diego California. It primarly composed of five memember each with a passion for development and coding.</h3>
+                    <h4> Code Crusher was founded in August of 2019 at 704 J Street in San Diego California. It primarly composed of five memember each with a passion for development and coding. Our hobbies 
+                    include playing video games and watching Paul Blart Mall Cop</h4>
+                
                     <br></br>
                     <br></br>
                     <br></br>
