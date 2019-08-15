@@ -43,7 +43,8 @@ class MainApp extends React.Component {
       return response.json()
     })
     .then( channel => {
-      this.setState({channel})
+      console.log(channel)
+      return channel
     })
   }
   
@@ -134,8 +135,8 @@ reloadPage = (id) => {
        { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
-       {(logged_in && channels) &&
-          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={channels} reloadPage={this.reloadPage} /> )}} />
+       {logged_in &&
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} reloadPage={this.reloadPage} /> )}} />
        }
        {logged_in &&
           <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />

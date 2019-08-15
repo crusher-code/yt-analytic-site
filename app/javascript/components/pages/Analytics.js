@@ -15,7 +15,27 @@ class Analytics extends Component {
       videoId: null,
       renderStr: "",
       isLoaded: null,
+      channels: null,
     }
+    this.getParamId()
+    this.getChannels()
+  }
+  
+  getChannels = () => {
+    fetch("/channels")
+    .then( response => {
+      return response.json()
+    })
+    .then( channels => {
+      this.setState({channels})
+    })
+  }
+  
+  getChannel = (id) => {
+    return fetch(`/channels/${id}`)
+    .then( response => {
+      return response.json()
+    })
   }
 
   getVideos = () =>{
@@ -38,43 +58,52 @@ class Analytics extends Component {
     })
     
   }
+  // getParamId = () => {
+  //   const { channels } = this.props
+  //   let idParam = this.props.match.params.id
+  //   idParam = Number(idParam)
+  //   let id
+  //   channels.map((channel, index) => {
+  //     if(channel.id === idParam ){
+  //       id = channel.id_channel
+  //     }
+  //   })
+  //   id = id
+  // return id
+  // }
   getParamId = () => {
-    const { channels } = this.props
     let idParam = this.props.match.params.id
-    idParam = Number(idParam)
-    let id
-    channels.map((channel, index) => {
-      if(channel.id === idParam ){
-        id = channel.id_channel
-      }
+    console.log(idParam)
+    this.getChannel(idParam)
+    .then((channelData)=>{
+      console.log("1")
+      return channelData.id_channel
     })
-    id = id
-  return id
-  }
-  componentDidMount(){
-    let channelId = this.getParamId()
-    getChannelData(channelId, this.props.apiKey)
-    .then( data => {
-            data = data.items[0]
-            if(data !== undefined){
-              let renderStr = JSON.stringify(data)
-              let videoId = data.contentDetails.relatedPlaylists.uploads
-              let isLoaded = true
-              this.setState({ data, renderStr, videoId, isLoaded })
-            }
-            else{
-              let isLoaded = false
-              let data = false
-              this.setState({ isLoaded, data })
-            }
+    .then((channelId)=> {
+      console.log("2")
+      getChannelData(channelId, this.props.apiKey)
+      .then( data => {
+              console.log("3")
+              data = data.items[0]
+              if(data !== undefined){
+                let renderStr = JSON.stringify(data)
+                let videoId = data.contentDetails.relatedPlaylists.uploads
+                let isLoaded = true
+                this.setState({ data, renderStr, videoId, isLoaded })
+              }
+              else{
+                let isLoaded = false
+                let data = false
+                this.setState({ isLoaded, data })
+              }
+      })
     })
   }
-  //          <p>{videoId}</p>
-  //        <p>{this.state.renderStr}</p>
+  
 
   render(){
-  const { channels, reloadPage } = this.props
-  const  { data, videoId, isLoaded, videoData, videoIds } = this.state
+  const { reloadPage } = this.props
+  const  { data, videoId, channels, isLoaded, videoData, videoIds } = this.state
     return (
       <div>
       <h1>Analytics</h1>
@@ -82,7 +111,9 @@ class Analytics extends Component {
       <div>
        {data &&
          <div>
+         {channels &&
           < ListChannels channels = {channels} reloadPage = {reloadPage} />
+         }
           < Snippet snippetData = {data.snippet} />
           < Statistics statisticsData = {data.statistics} />
           < Videos videoData={videoData} getVideos={this.getVideos} />
