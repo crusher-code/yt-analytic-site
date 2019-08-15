@@ -40,16 +40,12 @@ class NewChannel extends Component {
         this.setState({form})
     }
     
-    componentDidMount(){
-        console.log("did mount")
-    }
     render(){
         const {
             id_channel,
             name,
             createSuccess
         } = this.state
-        console.log("worked")
         return(
             <React.Fragment>
                 { createSuccess && <Redirect to="/"/> }
