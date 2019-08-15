@@ -99,14 +99,14 @@ reloadPage = (id) => {
                 <NavLink to="/profile"style={{color: 'white', textDecoration: 'none'}}  href={edit_user_route}>Profile</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to={`/analytics/${this.state.id_channel}`} tag={Link}>Analytics</NavLink>
-                {/*add style={{color: 'white', textDecoration: 'none'}} to above*/}
+                <NavLink style={{color: 'white', textDecoration: 'none'}} to={`/analytics/${this.state.id_channel}`} tag={Link}>Analytics</NavLink>
+                
               </NavItem>
               <NavItem>
                 <NavLink to="/aboutus" style={{color: 'white', textDecoration: 'none'}}  tag={Link}>AboutUs</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/newchannel" tag={Link}>NewChannel</NavLink>
+                <NavLink to="/newchannel" style={{color: 'white', textDecoration: 'none'}} tag={Link}>NewChannel</NavLink>
               </NavItem>
               <div className="navlink-nav ml-auto">
                 {logged_in &&
