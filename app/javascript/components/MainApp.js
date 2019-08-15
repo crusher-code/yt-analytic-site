@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
-import { Nav, NavItem,NavLink, NavBar } from 'reactstrap'
+import { Nav, NavItem, NavLink, NavBar } from 'reactstrap'
 import NewChannel from './pages/NewChannel'
 import NotLoggedIn from './pages/NotLoggedIn'
 
@@ -65,7 +65,6 @@ class MainApp extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({channel: attrs})
-        
     })
     .then(response => {
       if(response.status === 201){

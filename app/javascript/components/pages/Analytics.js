@@ -14,7 +14,6 @@ class Analytics extends Component {
       videoId: null,
       renderStr: "",
       isLoaded: null,
-
     }
   }
 
