@@ -17,7 +17,6 @@ class Profile extends Component{
             <header>
                  <h1>Profile</h1>
             </header>
-           
                 <div>
                     <a href={edit_user_route}>Edit</a>
                 </div>
