@@ -134,12 +134,8 @@ reloadPage = (id) => {
        { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
-       {logged_in &&
-        <div>
-        {channels &&
+       {(logged_in && channels) &&
           <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={channels} reloadPage={this.reloadPage} /> )}} />
-        }
-        </div>
        }
        {logged_in &&
           <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
