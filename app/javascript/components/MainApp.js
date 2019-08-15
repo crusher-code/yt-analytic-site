@@ -9,7 +9,6 @@ import NewChannel from './pages/NewChannel'
 import NotLoggedIn from './pages/NotLoggedIn'
 import { Nav, NavItem,NavLink, NavBar } from 'reactstrap'
 
-
 class MainApp extends React.Component {
   constructor(props) {
     super(props)
@@ -66,7 +65,6 @@ class MainApp extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({channel: attrs})
-        
     })
     .then(response => {
       if(response.status === 201){
@@ -93,6 +91,7 @@ reloadPage = (id) => {
       
 
       <React.Fragment>
+
 
        <div style={{backgroundColor: "#b32615"}}>
       <Router>
