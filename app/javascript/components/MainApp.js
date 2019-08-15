@@ -65,7 +65,6 @@ class MainApp extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({channel: attrs})
-        
     })
     .then(response => {
       if(response.status === 201){
@@ -95,7 +94,7 @@ reloadPage = (id) => {
       <header>
         <h2>Hello</h2>
       </header>
-      {logged_in&& 
+      {logged_in &&
         <div>
           <a href = {sign_out_route}>Sign Out</a>
         </div>
