@@ -13,8 +13,6 @@ class Profile extends Component{
         logged_in,
         edit_user_route
     }= this.props
-    console.log(this.props)
-        
         return(
             <div class="d-flex-justify-center">
         <React.Fragment>
