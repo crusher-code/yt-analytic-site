@@ -3,8 +3,8 @@ import ReactDOM  from 'react-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap'
 import { Card, CardImg, CardText, CardBody, CardTitle, Row, Col, CardDeck, Button, Container } from 'reactstrap'
 import testingB from '../images/testingB'
-import clouds from '../images/clouds'
-import sun from '../images/sun'
+import city from '../images/city'
+import play from '../images/play'
 
 class AboutUs extends Component{
     constructor(props){
@@ -50,8 +50,8 @@ class AboutUs extends Component{
             return (
              
                
-               <Col sm="4" style={{padding:"10px" }}>
-                <Card className="text-center text-white"  style={{ width:"89%", height:"100%", padding: "5px" }}>
+               <Col sm="4" style={{padding:"5px" }}>
+                <Card className="text-center text-white"  style={{ width:"89%", height:"100%", padding: "2px" }}>
                
                     <CardBody inverse style={{backgroundColor:'#b32615'}}>
                     <CardImg top  width="200px" height="230px" src={person.img}  alt="Card image cap" />
@@ -67,27 +67,28 @@ class AboutUs extends Component{
                 )
             })
         return(
-            <div class="p-3 mb-2 text-white" style={{backgroundColor: "#b32615"}}>
+            
+            <div className="p-3 mb-2 text-white"
+            style={{backgroundColor: "#b32615",
+            backgroundImage:`url('${play}')`,
+            backgroundRepeat: "repeat",
+            }}>
+            
            
-                <div class ="d-flex justify-content-center">
+
+            <div class ="d-flex justify-content-center">
                 <h1>MEET THE TEAM</h1>
-                <br></br>
-                </div>
-            
-            <Container outline color="secondary" style={{backgroundColor:"#b32615",shadowColor:"grey",padding:"10px"}}>
-            
-             <div class="d-flex-row-justify-content-end">
-            <img src={sun} style={{hieght: "250px", width: "250px",postion:"absolute", opacity:".6"}} />
-            {''}
-            <img src={clouds} style={{height: "200px", height: "250px",postion:"absolute", opacity:".6"}} />
+                    <br></br>
             </div>
             
-            <h3> Code Crusher was founded in August of 2019 at 704 J Street in San Diego California. It primarly composed of five memember each with a passion for development and coding.</h3>
-            <br></br>
-            <br></br>
+             <Container outline color="secondary" style={{backgroundColor:"#b32615",shadowColor:"black",padding:"10px"}}>
+                <Row>
             
-            <Row>
-           
+                    <h3> Code Crusher was founded in August of 2019 at 704 J Street in San Diego California. It primarly composed of five memember each with a passion for development and coding.</h3>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                   
              <CardDeck className="cardHolder">
                     
                     {/*Add bootstrap cards for each of us, with name,and maybe our professional photos*/}
@@ -95,15 +96,14 @@ class AboutUs extends Component{
                     { mapper }
                     
              </CardDeck>
-             <img src={testingB} style ={{height:"100%", width:"100%", postion: "absolute", opacity: ".9"}}/>
+             <img src={city} style ={{height:"100%", width:"100%", postion: "absolute", opacity: ".9"}}/>
             </Row>
-
             </Container>
            
             
             
-            </div>
             
+            </div>
         )
     }
 }
