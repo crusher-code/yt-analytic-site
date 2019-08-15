@@ -32,7 +32,7 @@ class ChannelsController < ApplicationController
     def destroy
         @channel = current_user.channels.find(params[:id])
         if @channel.destroy 
-            render json: @channel
+            render json: @channel, status: 200
         else 
             render json: {error: "Couldn't delete"}, status: 400
         end 
@@ -40,6 +40,6 @@ class ChannelsController < ApplicationController
     
     private 
     def channel_params
-        params.requre(:channel).permit(:name, :id_channel)
+        params.require(:channel).permit(:name, :id_channel)
     end 
 end

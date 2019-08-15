@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -52,4 +53,6 @@ gem "devise", "~> 4.6"
 gem "webpacker", "~> 4.0"
 
 gem "react-rails", "~> 2.6"
+
+gem "bootstrap", "~> 4.3"
 gem 'rspec-rails', groups: [:development, :test]

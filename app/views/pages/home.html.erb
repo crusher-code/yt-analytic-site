@@ -2,5 +2,8 @@
     logged_in: user_signed_in?,
     sign_in_route: new_user_session_path,
     sign_out_route: destroy_user_session_path,
-    edit_user_route: edit_user_registration_path
+    channels_route: channels_path,
+    edit_user_route: edit_user_registration_path,
+    new_channel_route: new_channel_path,
+    apiKey: ENV["YT_API_KEY_2"]
 }) %>
