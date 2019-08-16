@@ -53,7 +53,7 @@ class AboutUs extends Component{
                <Col sm="4" style={{padding:"10px" }}>
                 <Card className="text-center text-white"  style={{ width:"89%", height:"100%", padding: "5px" }}>
                
-                    <CardBody inverse="true" style={{backgroundColor:'#b32615'}}>
+                    <CardBody>
                     <CardImg top  width="200px" height="230px" src={person.img}  alt="Card image cap" />
                         <CardTitle>{person.name}</CardTitle>
                         <CardText>{person.desc}</CardText>
@@ -67,9 +67,9 @@ class AboutUs extends Component{
                 )
             })
         return(
-            <div className="p-3 mb-2 text-white" style={{backgroundColor: "#b32615"}}>
+            <div>
            
-                <div className ="d-flex justify-content-center">
+                <div>
                 <h1>MEET THE TEAM</h1>
                 <br></br>
                 </div>
@@ -95,7 +95,7 @@ class AboutUs extends Component{
                     { mapper }
                     
              </CardDeck>
-             <img src={testingB} style ={{height:"100%", width:"100%", postion: "absolute", opacity: ".9"}}/>
+            //  <img src={testingB} style ={{height:"100%", width:"100%", postion: "absolute", opacity: ".9"}}/>
             </Row>
 
             </Container>
