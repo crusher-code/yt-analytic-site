@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { BrowserRouter as Router, Route, Link,Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link,Switch, Container } from 'react-router-dom'
 import Home from './pages/Home'
 import Analytics from './pages/Analytics'
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 import NewChannel from './pages/NewChannel'
 import NotLoggedIn from './pages/NotLoggedIn'
-import { Nav, NavItem,NavLink } from 'reactstrap'
+import { Nav, NavItem,NavLink, NavBar } from 'reactstrap'
 
 class MainApp extends React.Component {
   constructor(props) {
@@ -91,42 +91,43 @@ reloadPage = (id) => {
       
 
       <React.Fragment>
-      <header>
-        <h2>Hello</h2>
-      </header>
-      {logged_in &&
-        <div>
-          <a href = {sign_out_route}>Sign Out</a>
-        </div>
-      }
-      {!logged_in &&
-        <div>
-          <a href={sign_in_route}>Sign In</a>
-        </div>
-      }
 
+
+       <div style={{backgroundColor: "#b32615"}}>
       <Router>
       <Nav>
         <NavItem>
-          <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
+          <NavLink id="HomepageLink"  to="/" style={{color: 'white', textDecoration: 'none'}}  tag={Link}>Home</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
+          <NavLink to="/profile"style={{color: 'white', textDecoration: 'none'}}  href={edit_user_route}>Profile</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to={`/analytics/${this.state.id_channel}`} tag={Link}>Analytics</NavLink>
+          <NavLink to={`/analytics/${this.state.id_channel}`} style={{color: 'white', textDecoration: 'none'}}  tag={Link}>Analytics</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/aboutus" tag={Link}>AboutUs</NavLink>
+          <NavLink to="/aboutus" style={{color: 'white', textDecoration: 'none'}}  tag={Link}>AboutUs</NavLink>
         </NavItem>
         <NavItem>
           <NavLink to="/newchannel" tag={Link}>NewChannel</NavLink>
         </NavItem>
+        
+          <div className="navlink-nav ml-auto">  
+        
+        {logged_in&&
+        
+          <NavItem >
+            <NavLink  href = {sign_out_route}>Sign Out</NavLink>
+          </NavItem>
+        }
+        {!logged_in && 
+          <NavItem>
+            <NavLink href={sign_in_route}>Sign In</NavLink>
+          </NavItem>
+        }
+       
+          </div>
       </Nav>
-      
-      
-      
-      
       
       <Switch> 
         <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
@@ -147,6 +148,7 @@ reloadPage = (id) => {
        }
       </Switch>
       </Router>
+      </div>
       </React.Fragment>
       
     );

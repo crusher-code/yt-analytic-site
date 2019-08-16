@@ -3,11 +3,10 @@ import ReactDOM  from 'react-dom'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 class Home extends Component{
-    
     render(){
         const { channels, deleteChannel, logged_in } = this.props
         return(
-            <div>
+           <div>
             <h1>Home</h1>
               {logged_in &&
                <div>

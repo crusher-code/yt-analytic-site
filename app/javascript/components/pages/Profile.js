@@ -6,6 +6,7 @@ import { Nav, NavItem,NavLink } from 'reactstrap'
 
 
 
+
 class Profile extends Component{
     render(){
     const{
@@ -13,16 +14,15 @@ class Profile extends Component{
         edit_user_route
     }= this.props
         return(
+            <div class="d-flex-justify-center">
         <React.Fragment>
-            <header>
-                 <h1>Profile</h1>
-            </header>
-           
-                <div>
-                    <a href={edit_user_route}>Edit</a>
+             <h1>Profile</h1>
+            <a href={edit_user_route}>Edit</a>
+                
+        </React.Fragment>
                 </div>
             
-        </React.Fragment>
+        
             );
     }
 }
