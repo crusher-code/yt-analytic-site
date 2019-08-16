@@ -8,12 +8,11 @@
   
   Enzyme.configure({ adapter: new Adapter() });
 
- it('Renders a LEARN welcome', ()=>{
-   const mainapp = mount(<MainApp />)
-  expect(mainapp.find('h2').text()).toEqual('Hello')
- })
+// it('Renders a LEARN welcome', ()=>{
+//   const mainapp = mount(<MainApp />)
+//   expect(mainapp.find('h2').text()).toEqual('Hello')
+// })
  
- describe('')
  
  
  

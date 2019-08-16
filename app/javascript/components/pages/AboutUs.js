@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import ReactDOM  from 'react-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap'
 import { Card, CardImg, CardText, CardBody, CardTitle, Row, Col, CardDeck, Button, Container } from 'reactstrap'
-import testingB from '../images/testingB'
-import clouds from '../images/clouds'
-import sun from '../images/sun'
+import testingB from '../images/testingB.png'
+import clouds from '../images/clouds.png'
+import sun from '../images/sun.png'
 
 class AboutUs extends Component{
     constructor(props){
