@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap'
 
 class Videos extends Component {
   componentDidMount(){
@@ -18,12 +19,12 @@ const { videoData } = this.props
         <div>
             {this.props.videoData.map((video, index) => {
                 return(
-                    <div key={index}>
-                        <img src={video.snippet.thumbnails.default.url} alt="This is alt"></img>
-                        <p>Title: {video.snippet.title}</p>
-                        <p>Views: {video.statistics.viewCount}</p>
-                        <p>Likes/Dislikes: {`${video.statistics.likeCount}/${video.statistics.dislikeCount}`}</p>
-                    </div>
+                    <Card key={index}>
+                        <div style={{width:"120px", height:"90px "}}><CardImg src={video.snippet.thumbnails.default.url} alt="This is alt" /></div>
+                        <CardTitle>Title: {video.snippet.title}</CardTitle>
+                        <CardSubtitle>Views: {video.statistics.viewCount}</CardSubtitle>
+                        <CardSubtitle>Likes/Dislikes: {`${video.statistics.likeCount}/${video.statistics.dislikeCount}`}</CardSubtitle>
+                    </Card>
                 )
             })}
         </div>
