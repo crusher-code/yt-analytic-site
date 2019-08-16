@@ -11,9 +11,7 @@
 
  describe("test profile", () => {
   it ("returns rendered profile component", () => {
-    // expect(mainapp.find('h2').text()).toEqual('Hello')
     const profile = mount(<Profile />)
-    // expect(hello()).toBe("hi")
   })
  })
  
@@ -24,16 +22,3 @@
     })
 })
  
-// expect(component.find('h1').text()).toEqual('Moin, Moin!');
-
-//  describe("hello", () => {
-//     it ("returns a string that says hi", () => {
-//         expect(hello()).toBe("hi")
-//     })
-// })
-
-
-
-// const hello = () => {
-//     return "hi"
-// }

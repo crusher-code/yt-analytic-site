@@ -10,8 +10,6 @@
   
    describe("test newChannel", () => {
   it ("returns rendered new channel component", () => {
-    // expect(mainapp.find('h2').text()).toEqual('Hello')
     const newChannel = mount(<NewChannel />)
-    // expect(hello()).toBe("hi")
   })
  })
