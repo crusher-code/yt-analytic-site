@@ -65,7 +65,6 @@ class MainApp extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({channel: attrs})
-        
     })
     .then(response => {
       if(response.status === 201){
@@ -95,7 +94,7 @@ reloadPage = (id) => {
       <header>
         <h2>Hello</h2>
       </header>
-      {logged_in&& 
+      {logged_in &&
         <div>
           <a href = {sign_out_route}>Sign Out</a>
         </div>
@@ -135,11 +134,7 @@ reloadPage = (id) => {
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
        {logged_in &&
-        <div>
-        {channels &&
-          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} channels={channels} reloadPage={this.reloadPage} /> )}} />
-        }
-        </div>
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} reloadPage={this.reloadPage} /> )}} />
        }
        {logged_in &&
           <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
