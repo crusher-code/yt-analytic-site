@@ -1,6 +1,7 @@
 <%= react_component("MainApp", {
     logged_in: user_signed_in?,
     sign_in_route: new_user_session_path,
+    sign_up_route: new_user_registration_path,
     sign_out_route: destroy_user_session_path,
     channels_route: channels_path,
     edit_user_route: edit_user_registration_path,

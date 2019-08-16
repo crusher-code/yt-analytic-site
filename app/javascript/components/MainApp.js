@@ -99,6 +99,7 @@ reloadPage = (id) => {
     const{
       logged_in, 
       sign_in_route,
+      sign_up_route,
       sign_out_route,
       channels_route,
       edit_user_route,
@@ -165,6 +166,9 @@ reloadPage = (id) => {
               </NavItem>
               <NavItem>
                 <NavLink to="/signin" href={sign_in_route}>Sign In</NavLink>
+              </NavItem>
+                <NavItem>
+                <NavLink to="/signup" href={sign_up_route}>Sign Up</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
