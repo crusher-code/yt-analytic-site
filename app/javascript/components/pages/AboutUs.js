@@ -14,30 +14,30 @@ class AboutUs extends Component{
                     desc: "Full stack web developer in training at LEARN academy. Unusually passionate about math.",
                     linked_in:"http://linkedin.com/in/dimitri-collas",
                     github: "http://github.com/Dimitriedd",
-                    img:"https://files.slack.com/files-pri/T04B40L2C-FLYMRHHCJ/img_7207.jpg"
+                    // img:"https://files.slack.com/files-pri/T04B40L2C-FLYMRHHCJ/img_7207.jpg"
                 },
                 {name: "Cattaleya Diaz",
                     desc: "Full-Stack developer with a passion for creative, fun and innovative projects.",
                     linked_in: "https://www.linkedin.com/in/cattaleya-diaz-470095148/",
                     github: "https://github.com/Cattaleya",
-                    img: "https://media.licdn.com/dms/image/C4D03AQEdl9MaigflAQ/profile-displayphoto-shrink_200_200/0?e=1571270400&v=beta&t=Fpv_V_n51UF78iaomgZTTTnsme_5KRTJRY9pmTAzHW0"
+                    // img: "https://media.licdn.com/dms/image/C4D03AQEdl9MaigflAQ/profile-displayphoto-shrink_200_200/0?e=1571270400&v=beta&t=Fpv_V_n51UF78iaomgZTTTnsme_5KRTJRY9pmTAzHW0"
                 },
                 {name: "Lali Gabelaya",
                     desc: "I dunno",
                     linked_in: "http://www.linkedin.com/in/lali-gabelaya",
                     github: "https://github.com/lali20021",
-                    img: "https://media.licdn.com/dms/image/C5603AQHiUlPywHDkoA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=6Yk6SgBY558ao8f5q_mBH9liLeJLRTwCbJ6vO91JmWE"},
+                     img: "https://media.licdn.com/dms/image/C5603AQHiUlPywHDkoA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=6Yk6SgBY558ao8f5q_mBH9liLeJLRTwCbJ6vO91JmWE"},
                 {name: "Jack Maldonado",
                     desc: "Web developer offering enthusiasm and understanding of various programming languages.",
                     linked_in: "https://www.linkedin.com/in/jack-maldonado-a31b7b18a/",
                     github: "https://github.com/jackmaldonado",
-                    img: "https://media.licdn.com/dms/image/C5603AQF4B6QBLDt-qQ/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=X_idVAfsdeTJw6C5o427GrcP6ar0LXVaj0rMm4Z_AyE"
+                    // img: "https://media.licdn.com/dms/image/C5603AQF4B6QBLDt-qQ/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=X_idVAfsdeTJw6C5o427GrcP6ar0LXVaj0rMm4Z_AyE"
                 },
                 {name: "Joshua Gibson",
                     desc: "Full-Stack developer with long hair and loud music.",
                     linked_in: "https://www.linkedin.com/in/joshalexgibs/",
                     github: "https://github.com/joshalexgibs", 
-                    img: "https://media.licdn.com/dms/image/C5603AQGYmmQZ8Mf0SA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=GSO07iv0DgKl2Ua_SHLCK6GxHqOKXDym1OOsKiPLJUI",
+                    // img: "https://media.licdn.com/dms/image/C5603AQGYmmQZ8Mf0SA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=GSO07iv0DgKl2Ua_SHLCK6GxHqOKXDym1OOsKiPLJUI",
                 }
             ]
         }
