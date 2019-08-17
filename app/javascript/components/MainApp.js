@@ -152,9 +152,6 @@ reloadPage = (id) => {
               <NavItem>
                 <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
-              </NavItem>
                <NavItem>
                 <NavLink to={`/analytics" href=${this.state.id_channel}`}tag={Link}>Analytics</NavLink>
               </NavItem>
