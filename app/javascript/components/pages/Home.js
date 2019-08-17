@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM  from 'react-dom'
+import mainpic from '../images/mainpic'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 class Home extends Component{
@@ -8,7 +9,7 @@ class Home extends Component{
         const { channels, deleteChannel, logged_in } = this.props
         return(
             <div>
-            <h1>Home</h1>
+            <img  style={{width: '105%', height: '105%'}}src={mainpic} alt=""/>
               {logged_in &&
                <div>
                {channels &&
