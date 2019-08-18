@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap'
+import { Card, CardGroup, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col } from 'reactstrap'
+//import { Card, CardImg, CardText, CardBody, CardTitle, Row, Col, CardDeck, Button, Container } from 'reactstrap'
 
 class Videos extends Component {
   componentDidMount(){
@@ -9,25 +10,29 @@ class Videos extends Component {
 
 // MAKE A VIDEO CLICKABLE RAP THE DIV IN THE MAP RETURN IN <a> TAG WITH A HREF OF href={`https://www.youtube.com/watch?v=${video.contentDetails.videoId}`}
 // EMBED CODE <iframe width="256" height="144" src={`https://www.youtube.com/embed/${video.contentDetails.videoId}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+// REFER DIMITRI TO PULL MEDIUM SIZE THUMBNAIL
 
   render(){
 const { videoData } = this.props
-
     return (
       <div>
     {videoData &&
-        <div>
+        <CardGroup>
             {this.props.videoData.map((video, index) => {
                 return(
-                    <Card key={index}>
-                        <div style={{width:"120px", height:"90px "}}><CardImg src={video.snippet.thumbnails.default.url} alt="This is alt" /></div>
+                  <Col xs="3" style={{paddingBottom:"10px"}}>
+                    <Card key={index} style={{height:"100%"}}>
+                      <CardImg src={video.snippet.thumbnails.default.url} style={{width:"120px", height:"90px", padding:"5px"}} alt='Auto-pulled thumbnail' />
+                      <CardBody>
                         <CardTitle>Title: {video.snippet.title}</CardTitle>
                         <CardSubtitle>Views: {video.statistics.viewCount}</CardSubtitle>
                         <CardSubtitle>Likes/Dislikes: {`${video.statistics.likeCount}/${video.statistics.dislikeCount}`}</CardSubtitle>
+                      </CardBody>
                     </Card>
+                  </Col>
                 )
             })}
-        </div>
+        </CardGroup>
     }
       </div>
     );

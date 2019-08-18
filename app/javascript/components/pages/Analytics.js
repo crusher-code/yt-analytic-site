@@ -100,7 +100,7 @@ class Analytics extends Component {
   const { reloadPage } = this.props
   const  { data, videoId, channels, isLoaded, videoData, videoIds } = this.state
     return (
-      <div>
+      <div style={{padding:"10px"}}>
       <h1>Analytics</h1>
      {isLoaded &&
       <div>
