@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Snippet extends Component {
 
-  render(){
+render(){
 const { snippetData } = this.props
     return (
       <div>

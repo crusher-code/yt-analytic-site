@@ -20,11 +20,13 @@ const { videoData } = this.props
         <CardGroup>
             {this.props.videoData.map((video, index) => {
                 return(
-                  <Col xs="3" style={{paddingBottom:"10px"}}>
+                  <Col xs="3" style={{paddingBottom:"10px", paddingTop:"10px"}}>
                     <Card key={index} style={{height:"100%"}}>
-                      <CardImg src={video.snippet.thumbnails.default.url} style={{width:"120px", height:"90px", padding:"5px"}} alt='Auto-pulled thumbnail' />
                       <CardBody>
-                        <CardTitle>Title: {video.snippet.title}</CardTitle>
+                        <a target="_blank" rel="noopener noreferrer" href={`https://www.youtube.com/watch?v=${video.id}`}>
+                          <CardImg src={video.snippet.thumbnails.medium.url} alt='Auto-pulled thumbnail' />
+                        </a>
+                        <CardTitle style={{paddingTop:"10px"}}>Title: {video.snippet.title}</CardTitle>
                         <CardSubtitle>Views: {video.statistics.viewCount}</CardSubtitle>
                         <CardSubtitle>Likes/Dislikes: {`${video.statistics.likeCount}/${video.statistics.dislikeCount}`}</CardSubtitle>
                       </CardBody>
@@ -40,6 +42,3 @@ const { videoData } = this.props
 }
 
 export default Videos;
-
-
-
