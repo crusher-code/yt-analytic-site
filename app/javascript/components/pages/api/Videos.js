@@ -12,7 +12,7 @@ class Videos extends Component {
 // EMBED CODE <iframe width="256" height="144" src={`https://www.youtube.com/embed/${video.contentDetails.videoId}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 // REFER DIMITRI TO PULL MEDIUM SIZE THUMBNAIL
 
-  render(){
+render(){
 const { videoData } = this.props
     return (
       <div>
@@ -26,9 +26,10 @@ const { videoData } = this.props
                         <a target="_blank" rel="noopener noreferrer" href={`https://www.youtube.com/watch?v=${video.id}`}>
                           <CardImg src={video.snippet.thumbnails.medium.url} alt='Auto-pulled thumbnail' />
                         </a>
-                        <CardTitle style={{paddingTop:"10px"}}>Title: {video.snippet.title}</CardTitle>
+                        <CardTitle style={{paddingTop:"10px"}}>{video.snippet.title}</CardTitle>
                         <CardSubtitle>Views: {video.statistics.viewCount}</CardSubtitle>
-                        <CardSubtitle>Likes/Dislikes: {`${video.statistics.likeCount}/${video.statistics.dislikeCount}`}</CardSubtitle>
+                        <CardSubtitle>Likes: {`${video.statistics.likeCount}`}</CardSubtitle>
+                        <CardSubtitle>Dislikes: {`${video.statistics.dislikeCount}`}</CardSubtitle>
                       </CardBody>
                     </Card>
                   </Col>
