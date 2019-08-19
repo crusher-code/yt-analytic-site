@@ -7,6 +7,10 @@ class Videos extends Component {
     this.props.getVideos()
     
   }
+  addLikes=(a,b)=>{
+    let added = Number(a) + Number(b)
+    return String(added)
+  }
 
 // MAKE A VIDEO CLICKABLE RAP THE DIV IN THE MAP RETURN IN <a> TAG WITH A HREF OF href={`https://www.youtube.com/watch?v=${video.contentDetails.videoId}`}
 // EMBED CODE <iframe width="256" height="144" src={`https://www.youtube.com/embed/${video.contentDetails.videoId}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -30,6 +34,7 @@ const { videoData } = this.props
                         <CardSubtitle>Views: {video.statistics.viewCount}</CardSubtitle>
                         <CardSubtitle>Likes: {`${video.statistics.likeCount}`}</CardSubtitle>
                         <CardSubtitle>Dislikes: {`${video.statistics.dislikeCount}`}</CardSubtitle>
+                        <meter value={video.statistics.likeCount} min="0" max={this.addLikes(video.statistics.likeCount,video.statistics.dislikeCount)}></meter>
                       </CardBody>
                     </Card>
                   </Col>
