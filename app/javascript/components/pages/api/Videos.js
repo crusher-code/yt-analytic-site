@@ -19,8 +19,8 @@ class Videos extends Component {
 // <meter value={video.statistics.likeCount} min="0" max={this.addLikes(video.statistics.likeCount,video.statistics.dislikeCount)}></meter>
 //<progress value={video.statistics.likeCount} max={this.addLikes(video.statistics.likeCount,video.statistics.dislikeCount)}></progress>
 
-render(){
-const { videoData } = this.props
+  render(){
+  const { videoData } = this.props
     return (
       <div>
         {videoData &&
