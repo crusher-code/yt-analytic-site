@@ -29,7 +29,7 @@ class ListChannels extends React.Component {
     const { channels } = this.props
     const { dropDown1,dropDown2 } = this.state
     return (
-      <div style={{padding: "5px 0 5px 0"}}>
+      <div style={{padding: "5px 0 15px 0"}}>
         <div className={dropDown1}>
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" onClick={this.toggleDropDown}>
             Channels
