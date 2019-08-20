@@ -18,7 +18,7 @@ class Home extends Component{
                 {channels.map((channel, index) => {
                   return(
                     <p key={index}>
-                      <Link to={`/analytics/${channel.id}`} style={{fontSize:"16px"}}>{channel.id}: {channel.name}     </Link>
+                      <Link to={`/analytics/${channel.id}`} style={{fontSize:"16px"}}>{index+1}: {channel.name}     </Link>
                       <Button outline color="danger" size="sm" style={{height:"25px",paddingTop:"2px"}} onClick={() => deleteChannel(channel.id)}>X</Button>
                       <br></br>
                     </p>
