@@ -97,7 +97,6 @@ class Analytics extends Component {
   
 
   render(){
-  const { reloadPage } = this.props
   const  { data, videoId, channels, isLoaded, videoData, videoIds } = this.state
     return (
       <div style={{padding:"10px"}}>
@@ -107,7 +106,7 @@ class Analytics extends Component {
        {data &&
          <div>
          {channels &&
-          < ListChannels channels = {channels} reloadPage = {reloadPage} />
+          < ListChannels channels = {channels} />
          }
           < Snippet snippetData = {data.snippet} />
           < Statistics statisticsData = {data.statistics} />

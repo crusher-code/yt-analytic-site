@@ -91,9 +91,9 @@ class MainApp extends React.Component {
       }
     })
 }
-reloadPage = (id) => {
-    window.location.href = `/analytics/${id}`
-  }
+// reloadPage = (id) => {
+//     window.location.href = `/analytics/${id}`
+//   }
   
   render () {
     const{
@@ -174,7 +174,7 @@ reloadPage = (id) => {
         <Route path="/aboutus" exact component={AboutUs} /> 
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
        {logged_in &&
-          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} reloadPage={this.reloadPage} /> )}} />
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} /> )}} />
        }
        {logged_in &&
           <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
