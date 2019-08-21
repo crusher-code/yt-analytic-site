@@ -38,7 +38,7 @@ class MainApp extends React.Component {
       isOpen: !this.state.isOpen
     });
    }
-   
+
   getChannels = () => {
     fetch("/channels")
     .then( response => {
@@ -55,7 +55,7 @@ class MainApp extends React.Component {
       // this.setState({channels})
     })
   }
-  
+
   getChannel = (id) => {
     fetch(`/channels/${id}`)
     .then( response => {
@@ -65,7 +65,7 @@ class MainApp extends React.Component {
       this.setState({channel})
     })
   }
-  
+
   deleteChannel = (id) => {
     return fetch(`/channels/${id}`,{
       method: 'DELETE'
@@ -76,7 +76,7 @@ class MainApp extends React.Component {
       }
     })
   }
-  
+
   createChannel = (attrs) => {
     return fetch("/channels",{
       method: 'POST',
@@ -94,10 +94,10 @@ class MainApp extends React.Component {
 // reloadPage = (id) => {
 //     window.location.href = `/analytics/${id}`
 //   }
-  
+
   render () {
     const{
-      logged_in, 
+      logged_in,
       sign_in_route,
       sign_up_route,
       sign_out_route,
@@ -108,14 +108,14 @@ class MainApp extends React.Component {
     }= this.props
     const { channels } = this.state
     return (
-      
+
     <React.Fragment>
     <Router>
-  
+
       {logged_in &&
         <div>
         <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <NavbarBrand>You Tube</NavbarBrand>
+          <NavbarBrand>YouAnalytics</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -167,11 +167,11 @@ class MainApp extends React.Component {
         </Navbar>
       </div>
       }
-      
-      <Switch> 
-        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
+
+      <Switch>
+        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel}/> )}} />
        { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
-        <Route path="/aboutus" exact component={AboutUs} /> 
+        <Route path="/aboutus" exact component={AboutUs} />
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
        {logged_in &&
           <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} /> )}} />

@@ -28,7 +28,7 @@ class AboutUs extends Component{
                     // img: "https://media.licdn.com/dms/image/C4D03AQEdl9MaigflAQ/profile-displayphoto-shrink_200_200/0?e=1571270400&v=beta&t=Fpv_V_n51UF78iaomgZTTTnsme_5KRTJRY9pmTAzHW0"
                 },
                 {name: "Lali Gabelaya",
-                    desc: "I dunno",
+                    desc: "Detail-oriented and driven professional passionate about writing well-designed and efficient code using current practices in Web development. Fluent in English, Russian and Polish.",
                     linked_in: "http://www.linkedin.com/in/lali-gabelaya",
                     github: "https://github.com/lali20021",
                      img: "https://media.licdn.com/dms/image/C5603AQHiUlPywHDkoA/profile-displayphoto-shrink_800_800/0?e=1571270400&v=beta&t=6Yk6SgBY558ao8f5q_mBH9liLeJLRTwCbJ6vO91JmWE"},

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM  from 'react-dom'
-import mainpic from '../images/mainpic'
+//import mainpic from '../images/mainpic'
 import { Button } from 'reactstrap'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
@@ -9,12 +9,10 @@ class Home extends Component{
     const { channels, deleteChannel, logged_in } = this.props
       return(
         <div>
-          {/*move this to css such that it can be overlayed*/}
-          <img style={{width: '100%', height: '100%'}} src={mainpic} alt=""/>
           {logged_in &&
-            <div>
+            <div  className="image" style={{height:"-webkit-fill-available", width:"100%"}}>
               {channels &&
-                <div>
+                <div style={{float:"right", paddingRight:"20px"}}>
                 {channels.map((channel, index) => {
                   return(
                     <p key={index}>
