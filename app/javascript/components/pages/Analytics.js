@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getChannelData, getVideoData, getVideoStatData } from './api/yt_api'
 import Videos from './api/Videos'
 import Snippet from './api/Snippet'
-import Statistics from './api/Statistics'
 import ListChannels from './api/ListChannels'
 
 class Analytics extends Component {
@@ -97,20 +96,18 @@ class Analytics extends Component {
   
 
   render(){
-  const { reloadPage } = this.props
   const  { data, videoId, channels, isLoaded, videoData, videoIds } = this.state
     return (
-      <div>
+      <div style={{padding:"10px"}}>
       <h1>Analytics</h1>
      {isLoaded &&
       <div>
        {data &&
          <div>
          {channels &&
-          < ListChannels channels = {channels} reloadPage = {reloadPage} />
+          < ListChannels channels = {channels} />
          }
-          < Snippet snippetData = {data.snippet} />
-          < Statistics statisticsData = {data.statistics} />
+          < Snippet snippetData = {data.snippet} statisticsData = {data.statistics} />
           < Videos videoData={videoData} getVideos={this.getVideos} />
          </div>
        }

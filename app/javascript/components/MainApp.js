@@ -7,19 +7,38 @@ import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 import NewChannel from './pages/NewChannel'
 import NotLoggedIn from './pages/NotLoggedIn'
-import { Nav, NavItem,NavLink } from 'reactstrap'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap'
 
 class MainApp extends React.Component {
   constructor(props) {
     super(props)
+    this.toggle = this.toggle.bind(this)
     this.state = {
+      isOpen: false,
       channels: null,
       channel: null,
       id_channel: null
-    }
+    };
     this.getChannels()
   }
-  
+   toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+   }
+
   getChannels = () => {
     fetch("/channels")
     .then( response => {
@@ -36,7 +55,7 @@ class MainApp extends React.Component {
       // this.setState({channels})
     })
   }
-  
+
   getChannel = (id) => {
     fetch(`/channels/${id}`)
     .then( response => {
@@ -46,7 +65,7 @@ class MainApp extends React.Component {
       this.setState({channel})
     })
   }
-  
+
   deleteChannel = (id) => {
     return fetch(`/channels/${id}`,{
       method: 'DELETE'
@@ -57,7 +76,7 @@ class MainApp extends React.Component {
       }
     })
   }
-  
+
   createChannel = (attrs) => {
     return fetch("/channels",{
       method: 'POST',
@@ -72,14 +91,15 @@ class MainApp extends React.Component {
       }
     })
 }
-reloadPage = (id) => {
-    window.location.href = `/analytics/${id}`
-  }
-  
+// reloadPage = (id) => {
+//     window.location.href = `/analytics/${id}`
+//   }
+
   render () {
     const{
-      logged_in, 
+      logged_in,
       sign_in_route,
+      sign_up_route,
       sign_out_route,
       channels_route,
       edit_user_route,
@@ -88,53 +108,73 @@ reloadPage = (id) => {
     }= this.props
     const { channels } = this.state
     return (
-      
 
-      <React.Fragment>
-      <header>
-        <h2>Hello</h2>
-      </header>
+    <React.Fragment>
+    <Router>
+
       {logged_in &&
         <div>
-          <a href = {sign_out_route}>Sign Out</a>
-        </div>
+        <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <NavbarBrand>YouAnalytics</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
+              </NavItem>
+               <NavItem>
+                <NavLink to={`/analytics/${this.state.id_channel}`} tag={Link}>Analytics</NavLink>
+              </NavItem>
+               <NavItem>
+                <NavLink to="/aboutus" tag={Link}>About Us</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/newchannel" tag={Link}>New Channel</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/signout " href={sign_out_route}>Sign Out</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
       }
       {!logged_in &&
-        <div>
-          <a href={sign_in_route}>Sign In</a>
-        </div>
+      <div>
+        <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <NavbarBrand>YouAnalytics</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
+              </NavItem>
+               <NavItem>
+                <NavLink to="/aboutus" tag={Link}>About Us</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/signin" href={sign_in_route}>Sign In</NavLink>
+              </NavItem>
+                <NavItem>
+                <NavLink to="/signup" href={sign_up_route}>Sign Up</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
       }
 
-      <Router>
-      <Nav>
-        <NavItem>
-          <NavLink id="HomepageLink" to="/" tag={Link}>Home</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/profile" href={edit_user_route}>Profile</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to={`/analytics/${this.state.id_channel}`} tag={Link}>Analytics</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/aboutus" tag={Link}>AboutUs</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/newchannel" tag={Link}>NewChannel</NavLink>
-        </NavItem>
-      </Nav>
-      
-      
-      
-      
-      
-      <Switch> 
-        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel} /> )}} /> 
+      <Switch>
+        <Route path="/" exact render={(props) => { return ( <Home {...props} channels={channels} logged_in={logged_in} deleteChannel={this.deleteChannel}/> )}} />
        { /* <Route   path="/profile" exact render={( ...props) => <Profile edit_user_route={edit_user_route}/> } /> */}
-        <Route path="/aboutus" exact component={AboutUs} /> 
+        <Route path="/aboutus" exact component={AboutUs} />
        {/* <Route path="/newchannel" exact component={NewChannel} /> */}
        {logged_in &&
-          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} reloadPage={this.reloadPage} /> )}} />
+          <Route path="/analytics/:id" render={(props) => {return ( <Analytics {...props} apiKey={apiKey} /> )}} />
        }
        {logged_in &&
           <Route path="/newchannel" render={(props) => { return ( <NewChannel {...props} onSubmit={this.createChannel} /> ) }} />
@@ -148,7 +188,6 @@ reloadPage = (id) => {
       </Switch>
       </Router>
       </React.Fragment>
-      
     );
   }
 }
