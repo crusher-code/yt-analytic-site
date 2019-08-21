@@ -145,7 +145,7 @@ class MainApp extends React.Component {
       {!logged_in &&
       <div>
         <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <NavbarBrand>You Tube</NavbarBrand>
+          <NavbarBrand>YouAnalytics</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
