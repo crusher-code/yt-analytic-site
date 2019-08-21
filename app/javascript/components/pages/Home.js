@@ -12,12 +12,12 @@ class Home extends Component{
         <div>
           {!logged_in &&
             <header className="masthead">
-            <div className="container">
-            <div className="intro-text">
-            <div className="intro lead-in">Welcome to our page!</div>
-            <div className="intro-heading text-uppercase">Its nice to meet you</div>
-            </div>
-            </div>
+              <div className="container">
+                <div className="intro-text">
+                  <div className="intro lead-in">Welcome to our page!</div>
+                  <div className="intro-heading text-uppercase">It's nice to meet you</div>
+                </div>
+              </div>
 
             </header>
 
